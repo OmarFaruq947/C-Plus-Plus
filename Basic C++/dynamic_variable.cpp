@@ -1,17 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int *func(){
-int *x = new int;
-    cout << "fun: "<< x <<endl;
-    *x = 10;
-    return x;
+int * func(){
+    int * a= new int;
+    *a=10;
+    cout <<"address of: "<< a <<endl;
 }
 
 int main(){
 
-int *p = func();
-cout << "main: "<< *p << endl;
+int *p= func();
+cout << &p <<endl;
 
-    return 0;
+return 0;
 }
