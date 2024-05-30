@@ -20,13 +20,13 @@ getline(cin, S);
 stringstream ss(S);
 string word;
 
-int cnt = 0;
+int count = 0;
 
 while (ss>>word)
 {
     cout << word <<endl;
-    cnt+=1;
+    count+=1;
 }
-cout << cnt <<endl;
+cout << count <<endl;
 return 0;
 }
