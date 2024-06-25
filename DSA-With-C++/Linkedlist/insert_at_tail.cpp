@@ -1,13 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class Node
 {
 public:
-    int val;
+    int value;
     Node *next;
-    Node(int val)
+    Node(int value)
     {
-        this->val = val;
+        this->value = value;
         this->next = NULL;
     }
 };
@@ -15,6 +16,7 @@ public:
 void insert_at_tail(Node *&head, int v)
 {
     Node *newNode = new Node(v);
+
     if (head == NULL)
     {
         head = newNode;
@@ -26,17 +28,17 @@ void insert_at_tail(Node *&head, int v)
     {
         tmp = tmp->next;
     }
-    // tmp ekhon last node e
     tmp->next = newNode;
 }
 
 void print_linked_list(Node *head)
 {
-    cout << "Your Linked List: ";
+    cout << "Your Linked list: ";
     Node *tmp = head;
+
     while (tmp != NULL)
     {
-        cout << tmp->val << " ";
+        cout << tmp->value << " ";
         tmp = tmp->next;
     }
     cout << endl;
@@ -44,17 +46,21 @@ void print_linked_list(Node *head)
 
 int main()
 {
+
     Node *head = NULL;
+
     while (true)
     {
-        cout << "Option 1: Insert at Tail" << endl;
-        cout << "Option 2: Print Linked List" << endl;
-        cout << "Option 3: Terminate" << endl;
+        cout << "option-1: Insert at tail: " << endl;
+        cout << "option-2: print Linked List : " << endl;
+        cout << "option-3: Terminate : " << endl;
+
         int op;
         cin >> op;
+
         if (op == 1)
         {
-            cout << "Please enter value: ";
+            cout << "please Enter Value: ";
             int v;
             cin >> v;
             insert_at_tail(head, v);
@@ -68,5 +74,6 @@ int main()
             break;
         }
     }
+
     return 0;
 }
