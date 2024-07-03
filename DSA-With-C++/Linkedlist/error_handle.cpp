@@ -31,7 +31,7 @@ void insert_at_tail(Node *&head, int v)
     Node *tmp = head;         // main node ke change kora jabe na, ay jonno immutably korar jonno main node r copy create kora holo
     while (tmp->next != NULL) // value insert loop--------------(1) explanation nice dea ache
     {
-        tmp = tmp->next; // ................(4)
+        tmp = tmp->next;
     }
     // tmp ekhon last node ache , but value assign kora hoy nay.
     tmp->next = newNode; // tmp te new node assign kora holo
@@ -50,7 +50,7 @@ void print_linked_list(Node *head)
     while (tmp != NULL) // printing loop--------------(2)  explanation nice dea ache
     {
         cout << tmp->val << " "; // ...............(3)  explanation nice dea ache
-        tmp = tmp->next;         // ................(4)
+        tmp = tmp->next;
     }
     cout << endl
          << endl;
@@ -101,6 +101,7 @@ void delete_from_position(Node *head, int pos)
             return;
         }
     }
+
     if (tmp == NULL) // Error handle .............. [5.1*]
     {
         cout << "Invalid Index !!!" << endl
@@ -140,7 +141,7 @@ void delete_head(Node *&head)
 
 int main()
 {
-    Node *head = NULL; // create node pointer, jar value null and memory address null, first kisuy nay
+    Node *head = NULL; // create node pointer, jar value null and memory address null,
 
     while (true)
     {
@@ -155,18 +156,18 @@ int main()
         int op;
 
         cout << "please Enter Option: ";
-        cin >> op; // option input
+        cin >> op;
 
         if (op == 1)
         {
             int v;
             cout << "please Enter Value : ";
-            cin >> v;                // linked list value input.
-            insert_at_tail(head, v); // option 1 select korle linkedlist input near function run hobe.
+            cin >> v;
+            insert_at_tail(head, v);
         }
         else if (op == 2)
         {
-            print_linked_list(head); // option 2 select korle linked list print kore dekhabe.
+            print_linked_list(head);
         }
         else if (op == 3)
         {
@@ -213,7 +214,7 @@ int main()
         }
         else if (op == 7)
         {
-            break; //  option 3 select korle program terminate hoye jabe.
+            break; // program terminate hoye jabe.
         }
     }
 
