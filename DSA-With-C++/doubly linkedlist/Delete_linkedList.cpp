@@ -94,12 +94,63 @@ void insert_tail(Node *&head, Node *&tail, int val)
     newNode->prev = tail;
 }
 
+void delete_at_position(Node *head, int pos)
+{
+    Node *tmp = head;
+    for (int i = 1; i <= pos - 1; i++)
+    {
+        tmp = tmp->next;
+    }
+    Node *DeleteNode = tmp->next;
+    tmp->next = tmp->next->next;
+    tmp->next->prev = tmp;
+    delete DeleteNode;
+}
+
+void delete_at_tail(Node *&tail)
+{
+    Node *deleteNode = tail;
+    tail = tail->prev;
+    delete deleteNode;
+    tail->next = NULL;
+}
+
+void delete_at_head(Node *&head)
+{
+    Node *deleteNode = head;
+    head = head->next;
+    delete deleteNode;
+    head->prev = NULL;
+};
+
 int main()
 {
     Node *head = NULL;
-    Node *tail = NULL;
 
-    int pos = 0;
+    Node *a = new Node(10);
+    Node *b = new Node(20);
+    Node *c = new Node(30);
+
+    // connection
+    head->next = a;
+    a->prev = head;
+
+    a->next = b;
+    b->prev = a;
+
+    b->next = c;
+    c->prev = b;
+
+    Node *tail = c;
+    c->prev = b;
+
+    int pos;
+    cin >> pos;
+
+    delete_at_position(head, pos);
+
+    delete_at_tail(tail);
+
     int val = 100;
 
     if (pos > linkedList_size(head))
@@ -126,3 +177,18 @@ int main()
 
     return 0;
 }
+
+// input
+// print
+
+// delete_at_head
+// delete_at_tail
+// delete_at_position
+
+// inser_at_head
+// insert_at_tail
+// inser_at_any_position
+
+// reverse
+// sort_assending
+// sort_desending

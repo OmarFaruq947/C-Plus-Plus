@@ -139,6 +139,18 @@ void delete_head(Node *&head)
     }
 }
 
+int total_node_count(Node *head)
+{
+    Node *tmp = head;
+    int count = 0;
+    while (tmp != NULL)
+    {
+        count++;
+        tmp = tmp->next;
+    }
+    return count;
+}
+
 int main()
 {
     Node *head = NULL; // create node pointer, jar value null and memory address null,
@@ -151,7 +163,8 @@ int main()
         cout << "option 4: Insert at Head:" << endl;         // done [ no issue]
         cout << "option 5: Delete the position. " << endl;   // done [5* & 5.1*]
         cout << "option 6: Delete the HEAD. " << endl;       // done [6*]
-        cout << "option 7: Terminate" << endl                // done [no issue]
+        cout << "option 7: Total Node Number. " << endl;
+        cout << "option 8: Terminate" << endl // done [no issue]
              << endl;
         int op;
 
@@ -213,6 +226,10 @@ int main()
             delete_head(head);
         }
         else if (op == 7)
+        {
+            cout << total_node_count(head) << "  ";
+        }
+        else if (op == 8)
         {
             break; // program terminate hoye jabe.
         }
