@@ -1,0 +1,173 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+public:
+    int val;
+    Node *left;
+    Node *right;
+    Node(int val)
+    {
+        this->val = val;
+        this->left = NULL;
+        this->right = NULL;
+    }
+};
+
+// Node *input_tree()
+// {
+//     int val;
+//     cin >> val;
+
+//     Node *root;
+
+//     if (val == -1)
+//         root = NULL;
+//     else
+//         root = new Node(val);
+
+//     queue<Node *> q;
+
+//     if (root)
+//         q.push(root);
+
+//     while (!q.empty())
+//     {
+//         // 1. ber kore ano
+//         Node *p = q.front();
+//         q.pop();
+
+//         // 2. jabotiyo ja kaj ache
+//         int l, r;
+//         cin >> l >> r;
+
+//         Node *myLeft;
+//         Node *myRight;
+
+//         if (l == -1)
+//         {
+//             myLeft = NULL;
+//         }
+
+//         else
+//         {
+//             myLeft = new Node(l);
+//         }
+
+//         if (r == -1)
+//         {
+//             myRight = NULL;
+//         }
+
+//         else
+//         {
+//             myRight = new Node(r);
+//         }
+
+//         p->left = myLeft;
+//         p->right = myRight;
+
+//         // 3. children gulo ke push koro
+//         if (p->left)
+//             q.push(p->left);
+
+//         if (p->right)
+//             q.push(p->right);
+//     }
+//     return root;
+// }
+
+// void insert_node(Node *&root, int x)
+// {
+//     if (root == NULL)
+//     {
+//         root = new Node(x);
+//         return;
+//     }
+
+//     if (x < root->val)
+//     {
+//         if (root->left == NULL)
+//         {
+//             root->left = new Node(x);
+//         }
+//         else
+//         {
+//             insert_node(root->left, x);
+//         }
+//     }
+//     else
+//     {
+//         if (root->right == NULL)
+//         {
+//             root->right = new Node(x);
+//         }
+//         else
+//         {
+//             insert_node(root->right, x);
+//         }
+//     }
+// }
+
+Node *convert(int a[], int n, int l, int r)
+{
+    if (l > r)
+        return NULL;
+    int mid = (l + r) / 2;
+    Node *root = new Node(a[mid]);
+    Node *leftRoot = convert(a, n, l, mid - 1);
+    Node *rightRoot = convert(a, n, mid + 1, r);
+    root->left = leftRoot;
+    root->right = rightRoot;
+    return root;
+}
+
+void level_order(Node *root)
+{
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        // 1. ber kore ano
+        Node *f = q.front();
+        q.pop();
+        //.....................................................
+
+        // 2. jabotio ja kaj ache ta koro
+        cout << f->val << " ";
+
+        //.....................................................
+
+        // 3. tar children gulo ke rakho
+        if (f->left != NULL)
+        {
+            q.push(f->left);
+        }
+        if (f->right != NULL)
+        {
+            q.push(f->right);
+        }
+    }
+}
+
+int main()
+{
+    // Node *root = input_tree();
+
+    // insert_node(root, 13);
+    // insert_node(root, 32);
+    // insert_node(root, 27);
+    // insert_node(root, 22);
+
+    int n;
+    cin >> n;
+    int a[n];
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    Node *root = convert(a, n, 0, n - 1);
+    // call
+    level_order(root);
+    return 0;
+}
