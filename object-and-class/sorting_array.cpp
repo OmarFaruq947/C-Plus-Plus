@@ -2,26 +2,21 @@
 using namespace std;
 
 int main(){
-int n;
-cin >> n ;
 
-int a[n];
-for (int i = 0; i < n; i++)
-{
-    cin >> a[i] ;
-}
+    int n;
+    cin>> n ;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+         cin>> arr[i];
+    }
+sort(arr, arr+n); // ascending
+sort(arr, arr+n, greater<int>()) // didsending
 
-
-//sort (starting_point, ending_point)
-
-sort(a, a+n);  // ascending order
-
-sort(a, a+n, greater<int>() ); // descending order ( building compare function greater<long long int>)
-
-for (int i = 0; i < n; i++)
-{
-    cout << a[i] <<" ";
-}
-
-return 0;
-}
+    for (int i = 0; i < n; i++)
+    {
+         cout<< arr[i] << " ";
+    }
+    
+    return 0;
+};

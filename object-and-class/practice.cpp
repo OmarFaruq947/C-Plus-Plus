@@ -1,30 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class student{
+class Student{
     public:
-    int roll;
-    int phone;
-    student(int roll, int phone){
-        this->roll=roll;
-        this->phone=phone;
-    }
+    char name[100];
+    int age;
+
+    // constructor
+    Student(const char* name, int age){
+        strcpy(this->name, name);
+        this->age = age;
+    };
 };
 
- student* func()
-{
-    student faruq(101, 01);
-    student *p = &faruq;
-    return p;
-}
-
+Student* myFunc(){
+    Student* faruq = new Student ("faruq", 50);
+    return faruq;
+};
 
 int main(){
-
-student *ans = func();
-// cout<< ans.roll<<"  "<< ans.phone<< endl;
-
-cout << ans->roll << " "<<ans->phone <<endl;
-
+    Student *ans = myFun();
+    cout<< ans->name << " "<< ans->age <<  endl;
+    delete ans
     return 0;
-}
+};
