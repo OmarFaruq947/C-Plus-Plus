@@ -16,15 +16,25 @@ public:
 
 int main()
 {
-    Node a(10);
-    Node b(30);
+    Node *head = new Node(NULL);
+    Node *a= new Node(11);
+    Node *b = new Node(22);
+    Node *c = new Node(33);
+    Node *d = new Node(44);
 
-    a.next = &b;
+    // connection
 
-    cout << a.val << endl;
-    cout << b.val << endl;
-    cout << a.next->val << endl;
-    cout << b.next->val << endl;
+    head->next=a;
+    a->next=b;
+    b->next=c;
+    c->next=d;
+
+    // if(head->next->val == a->val) cout<< "yes" <<endl;
+    // else cout<< "no" <<endl;
+    
+    cout<< head <<endl;
+    cout<< a->val <<endl;
+  
 
     return 0;
 }

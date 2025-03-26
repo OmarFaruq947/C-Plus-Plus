@@ -1,13 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-int isSomeDigit(int num){
-   return num%2 ==0;
+int sumOfDigits(int num){
+    int sum =0;
+    while (num>0)
+    {
+        sum +=num%10;
+        num /= 10;
+    }
+    return sum;
 }
-
-
-
 
 int main(){
 ios:: sync_with_stdio(false);
@@ -18,13 +20,16 @@ cin.tie(nullptr);
     cin>> a>>b;
 
     long long int sum=0; 
+    
     for (int i = 1 ; i <=n; i++)
     {
-        cout<< isSomeDigit(i) <<endl;
+        int digitSum = sumOfDigits(i);
+        if(digitSum >= a && digitSum <= b){
+            sum +=i;
+        }
     }
 
-    
-
+    cout<< sum <<endl;
 
     return 0;
 };
